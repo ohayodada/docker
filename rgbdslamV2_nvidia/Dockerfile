@@ -69,7 +69,7 @@ RUN /bin/bash -c " \
       sed -i 's/1.7/1.8/g' rgbdslam_v2/CMakeLists.txt; \
       cd ..; \
       catkin_make -j8; \
-      echo \source /root/catkin/devel/setup.bashrc\ >> ~/.bashrc; \
+      echo \source /root/catkin/devel/setup.bash\ >> ~/.bashrc; \
       source ~/.bashrc"
 
 
