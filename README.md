@@ -16,5 +16,6 @@ $ ./buils.sh
 ```
 # How to run
 ```shell
-docker run --gpus all -it --ipc=host --net=host -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY ohayodada/rgbdslam_nvidia
+$ docker run --gpus all -it --ipc=host --net=host -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY ohayodada/rgbdslam_nvidia
+$ roslaunch rgbdslam rgbdslam.launch
 ```
