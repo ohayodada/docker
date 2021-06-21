@@ -10,7 +10,7 @@ RUN /bin/bash -c " \
       echo \"deb http://packages.ros.org/ros/ubuntu xenial main\" >> /etc/apt/sources.list.d/ros-latest.list; \
       apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654; \
       apt-get update; \
-      apt-get install -y ros-kinetic-desktop-full
+      apt-get install -y ros-kinetic-desktop-full"
 
 RUN /bin/bash -c " \
    # Rosdep init and update
@@ -70,6 +70,6 @@ RUN /bin/bash -c " \
       cd ..; \
       catkin_make -j8; \
       echo \source /root/catkin/devel/setup.bashrc\ >> ~/.bashrc; \
-      source ~/.bashrc "
+      source ~/.bashrc"
 
 
