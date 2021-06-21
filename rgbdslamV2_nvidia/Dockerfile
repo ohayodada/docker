@@ -10,23 +10,12 @@ RUN /bin/bash -c " \
       echo \"deb http://packages.ros.org/ros/ubuntu xenial main\" >> /etc/apt/sources.list.d/ros-latest.list; \
       apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654; \
       apt-get update; \
-      apt-get install -y ros-kinetic-desktop-full; \
-      echo \"export QT_X11_NOMITSHM=1\" >> ~/.bashrc"
+      apt-get install -y ros-kinetic-desktop-full
 
 RUN /bin/bash -c " \
    # Rosdep init and update
       rosdep init; \
-      rosdep update; \
-      echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc"
-
-
-
-# # Change user
-# USER boat
-
-# WORKDIR /home/boat
-
-# ENV LANG="en_US.UTF-8"
+      rosdep update"
    
 # ############################################################
 # ########### Install rgbdslam_v2 Dependencies ###############
@@ -71,7 +60,7 @@ RUN /bin/bash -c " \
 # ############################################################
 
 RUN /bin/bash -c " \
-      source /opt/ros/kinetic/setup.bash; \
+      echo \source /opt/ros/kinetic/setup.bash\ >> ~/.bashrc; \
       source ~/.bashrc; \
       cd ~; \
       mkdir -p catkin_ws/src; \
@@ -80,7 +69,7 @@ RUN /bin/bash -c " \
       sed -i 's/1.7/1.8/g' rgbdslam_v2/CMakeLists.txt; \
       cd ..; \
       catkin_make -j8; \
-      echo \"export /root/catkin/devel/setup.bashrc\" >> ~/.bashrc"; \
-      source ~/.bashrc;"
+      echo \source /root/catkin/devel/setup.bashrc\ >> ~/.bashrc; \
+      source ~/.bashrc "
 
 
