@@ -1,7 +1,7 @@
 # Requirements
 
-1. Install docker[https://docs.docker.com/engine/install/ubuntu/]
-2. Install nvidia-dock[https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker]
+1. Install [docker](https://docs.docker.com/engine/install/ubuntu/)
+2. Install [nvidia-dock](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker)
 3. Install and setup GUI visualization
 ```shell
 $ sudo apt-get install x11-xserver-utils
