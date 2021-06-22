@@ -15,7 +15,9 @@ RUN /bin/bash -c " \
 RUN /bin/bash -c " \
    # Rosdep init and update
       rosdep init; \
-      rosdep update"
+      rosdep update; \
+      echo \source /opt/ros/kinetic/setup.bash\ >> ~/.bashrc; \
+      source ~/.bashrc;"
    
 # ############################################################
 # ########### Install rgbdslam_v2 Dependencies ###############
@@ -60,8 +62,6 @@ RUN /bin/bash -c " \
 # ############################################################
 
 RUN /bin/bash -c " \
-      echo \source /opt/ros/kinetic/setup.bash\ >> ~/.bashrc; \
-      source ~/.bashrc; \
       cd ~; \
       mkdir -p catkin_ws/src; \
       cd catkin_ws/src; \
@@ -69,7 +69,7 @@ RUN /bin/bash -c " \
       sed -i 's/1.7/1.8/g' rgbdslam_v2/CMakeLists.txt; \
       cd ..; \
       catkin_make -j8; \
-      echo \source /root/catkin/devel/setup.bash\ >> ~/.bashrc; \
+      echo \source /root/catkin_ws/devel/setup.bash\ >> ~/.bashrc; \
       source ~/.bashrc"
 
 
